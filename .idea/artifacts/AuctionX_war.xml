@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="AuctionX:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="AuctionX-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="AuctionX:war exploded" />
+    </root>
+  </artifact>
+</component>
