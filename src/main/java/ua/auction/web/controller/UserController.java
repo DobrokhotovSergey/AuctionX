@@ -1,5 +1,6 @@
 package ua.auction.web.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -9,9 +10,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+import ua.auction.web.service.UserServiceImpl;
 
 @Controller
-public class MainController {
+public class UserController {
+
+	@Autowired
+	private UserServiceImpl userService;
 
 	@RequestMapping(value = { "/", "/welcome**" }, method = RequestMethod.GET)
 	public ModelAndView defaultPage() {
@@ -20,17 +25,19 @@ public class MainController {
 		model.addObject("title", "Spring Security Login Form - Database Authentication");
 		model.addObject("message", "This is default page!");
 		model.setViewName("hello");
+		userService.getListCompanies().stream().forEach(s-> System.out.println(s));
 		return model;
 
 	}
 
-	@RequestMapping(value = "/admin**", method = RequestMethod.GET)
-	public ModelAndView adminPage() {
 
+	@RequestMapping(value = "/admin**", method = RequestMethod.GET)
+	public ModelAndView adminPage(Authentication auth) {
 		ModelAndView model = new ModelAndView();
-		model.addObject("title", "Spring Security Login Form - Database Authentication");
-		model.addObject("message", "This page is for ROLE_ADMIN only!");
+//		User user = (User) userDetailsService.loadUserByUsername(auth.getName());
 		model.setViewName("admin");
+
+//		model.addObject("login", user.getUsername());
 
 		return model;
 
