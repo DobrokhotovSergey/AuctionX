@@ -4,7 +4,13 @@
 <html>
 <body>
 	<h1>Title : ${title}</h1>
-	<h1>Message : ${message}</h1>
+	<h1>Message : ${message} </h1>
+	<form id="form" action="/" method="post">
+
+		<input name="test">
+	<button>GO POST</button>
+	</form>
+
 
 	<sec:authorize access="hasRole('ROLE_USER')">
 		<!-- For login user -->
@@ -29,4 +35,6 @@
 
 	</sec:authorize>
 </body>
+<script src="resources/js/jquery-2.2.3.min.js"></script>
+
 </html>
