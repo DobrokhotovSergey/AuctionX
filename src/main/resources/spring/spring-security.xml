@@ -36,7 +36,7 @@
 				authorities-by-username-query=
 					"select username, role from user_roles where username =?  " />
 			<security:password-encoder ref="bCryptPasswordEncoder" />
-	</security:authentication-provider>
+		</security:authentication-provider>
 	</security:authentication-manager>
 
 </beans:beans>
