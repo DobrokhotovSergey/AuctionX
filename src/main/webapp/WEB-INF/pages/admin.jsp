@@ -2,9 +2,8 @@
 <%@page session="true"%>
 <html>
 <body>
-	<h1>Title : ${title}</h1>
-	<h1>Message : ${message}</h1>
-
+<h1> ADMIN PAGE </h1>
+	<h1>Title : ${login}</h1>
 	<c:url value="/logout" var="logoutUrl" />
 	<form action="${logoutUrl}" method="post" id="logoutForm">
 		<input type="hidden" name="${_csrf.parameterName}"
