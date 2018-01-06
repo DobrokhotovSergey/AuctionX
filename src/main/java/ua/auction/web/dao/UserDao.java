@@ -1,9 +1,7 @@
 package ua.auction.web.dao;
 
-import ua.auction.web.domain.Company;
-
-import java.util.List;
+import ua.auction.web.domain.User;
 
 public interface UserDao {
-    List<Company> getListCompanies();
+    User findByUserName(String username);
 }
