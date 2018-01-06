@@ -1,6 +1,5 @@
 package ua.auction.web.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -10,13 +9,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-import ua.auction.web.service.UserServiceImpl;
+
 
 @Controller
 public class UserController {
-
-	@Autowired
-	private UserServiceImpl userService;
 
 	@RequestMapping(value = { "/", "/welcome**" }, method = RequestMethod.GET)
 	public ModelAndView defaultPage() {
@@ -25,7 +21,6 @@ public class UserController {
 		model.addObject("title", "Spring Security Login Form - Database Authentication");
 		model.addObject("message", "This is default page!");
 		model.setViewName("hello");
-		userService.getListCompanies().stream().forEach(s-> System.out.println(s));
 		return model;
 
 	}
